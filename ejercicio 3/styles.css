@@ -1,0 +1,14 @@
+body{
+    color: black;
+    text-align: left;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 2rem;
+    background-color: ghostwhite;
+    border-radius: 8px;
+}
+
+.titulos {
+    color: darkblue;
+    border-bottom: 2px;
+    padding-bottom: 0.5rem;
+}
