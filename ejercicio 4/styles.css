@@ -14,7 +14,7 @@ body {
 }
 
 :root {
-    --azul-lobo: #003366;
+    --color-primario: #003366;
     --fondo-gris: #f4f4f4;
     --blanco: #ffffff;
     --radio: 15px;
@@ -54,7 +54,7 @@ body {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: var(--azul-lobo);
+    background-color: var(--color-primario);
     width: 100%; 
     padding: 15px;
     border-radius: var(--radio);
@@ -81,8 +81,8 @@ body {
 }
 
 .titulo-seleccionado {
-    color: var(--azul-lobo);
-    border-bottom: 3px solid var(--azul-lobo);
+    color: var(--color-primario);
+    border-bottom: 3px solid var(--color-primario);
     display: inline-block;
     margin-bottom: 20px;
     font-size: 2.2rem;
