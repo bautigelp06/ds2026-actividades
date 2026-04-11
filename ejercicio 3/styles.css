@@ -1,14 +1,14 @@
-body{
-    color: black;
-    text-align: left;
-    font-family: Arial, Helvetica, sans-serif;
-    margin: 2rem;
-    background-color: ghostwhite;
-    border-radius: 8px;
+.titulos {
+    color: var(--color-primario); 
+    border-bottom: 2px solid ghostwhite;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    text-align: left; 
 }
 
-.titulos {
-    color: darkblue;
-    border-bottom: 2px;
-    padding-bottom: 0.5rem;
+
+body {
+    background-color: whitesmoke; 
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 2rem; 
 }

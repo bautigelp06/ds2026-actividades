@@ -1,14 +1,50 @@
 body{
     color: black;
-    text-align: left;
+    text-align: center;
     font-family: Arial, Helvetica, sans-serif;
     margin: 2rem;
     background-color: ghostwhite;
     border-radius: 8px;
+    line-height: 1.6;
 }
 
 .titulos {
-    color: darkblue;
+    color: slategray;
     border-bottom: 2px;
     padding-bottom: 0.5rem;
 }
+
+:root {
+ --primary-colorr: white ;
+ --secondary-color : darkblue;
+ --border-radius : 8px;
+ --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+nav {
+    display: flex;             
+    justify-content: space-around; 
+    align-items: center;          
+    background: var(--primary-color);
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    font-weight: bold;
+    text-decoration-color: var(--secondary-color) ;
+}
+
+section {
+    background: var(--primary-colorr) ;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-radius: var(--border-radius); 
+    box-shadow: var(--shadow);        
+}
+
