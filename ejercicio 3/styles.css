@@ -1,4 +1,4 @@
-.titulos {
+.titulo-seleccionado {
     color: var(--color-primario); 
     border-bottom: 2px solid ghostwhite;
     padding-bottom: 0.5rem;
