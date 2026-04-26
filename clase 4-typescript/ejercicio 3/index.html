@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 3 - ABM Libros</title>
+</head>
+<body>
+    <h1>Administración de Libros</h1>
+
+    <div id="formulario">
+        <input type="text" id="titulo" placeholder="Título">
+        <input type="text" id="autor" placeholder="Autor">
+        <input type="number" id="precio" placeholder="Precio">
+        <button id="btnAgregar">Agregar Libro</button>
+        <div id="errorForm" style="color: red;"></div>
+    </div>
+
+    <hr>
+
+    <input type="text" id="filtroAutor" placeholder="Filtrar por autor...">
+    <button id="filtrar">Filtrar</button>
+    <button id="mostrarTodos">Ver todos</button>
+
+    <ul id="listado"></ul>
+    <p id="stats"></p>
+
+    <script src="app.js"></script>
+</body>
+</html>
