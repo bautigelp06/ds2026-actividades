@@ -1,4 +1,4 @@
-import { Container, Button } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 import { useParams, Link } from 'react-router-dom';
 
 export function LibroDetalle() {
