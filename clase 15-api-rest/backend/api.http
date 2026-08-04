@@ -1,0 +1,91 @@
+@baseUrl = http://localhost:3000
+
+### Listar libros
+GET {{baseUrl}}/api/libros
+
+### Ver un libro
+GET {{baseUrl}}/api/libros/1
+
+### Un libro que no existe (404)
+GET {{baseUrl}}/api/libros/999
+
+### Crear un libro
+POST {{baseUrl}}/api/libros
+Content-Type: application/json
+
+{
+  "titulo": "Rayuela",
+  "autor": "Julio Cortázar",
+  "precio": 21000,
+  "imagen": "https://covers.openlibrary.org/b/id/8259447-L.jpg"
+}
+
+### Editar un libro
+PUT {{baseUrl}}/api/libros/1
+Content-Type: application/json
+
+{
+  "titulo": "Cien años de soledad",
+  "autor": "Gabriel García Márquez",
+  "precio": 30000,
+  "imagen": "https://covers.openlibrary.org/b/id/8259441-L.jpg"
+}
+
+### Editar un libro que no existe (404)
+PUT {{baseUrl}}/api/libros/999
+Content-Type: application/json
+
+{
+  "titulo": "Inexistente",
+  "autor": "Nadie",
+  "precio": 1000,
+  "imagen": "https://covers.openlibrary.org/b/id/0-L.jpg"
+}
+
+### Borrar un libro
+DELETE {{baseUrl}}/api/libros/2
+
+### Borrar un libro que no existe (404)
+DELETE {{baseUrl}}/api/libros/999
+
+### Listar autores
+GET {{baseUrl}}/api/autores
+
+### Ver un autor
+GET {{baseUrl}}/api/autores/1
+
+### Un autor que no existe (404)
+GET {{baseUrl}}/api/autores/999
+
+### Crear un autor
+POST {{baseUrl}}/api/autores
+Content-Type: application/json
+
+{
+  "nombre": "Julio Cortázar",
+  "nacionalidad": "Argentina"
+}
+
+### Editar un autor
+PUT {{baseUrl}}/api/autores/1
+Content-Type: application/json
+
+{
+  "nombre": "Gabriel García Márquez",
+  "nacionalidad": "Colombiana"
+}
+
+### Editar un autor que no existe (404)
+PUT {{baseUrl}}/api/autores/999
+Content-Type: application/json
+
+{
+  "nombre": "Inexistente",
+  "nacionalidad": "Ninguna"
+}
+
+### Borrar un autor
+DELETE {{baseUrl}}/api/autores/2
+
+### Borrar un autor que no existe (404)
+DELETE {{baseUrl}}/api/autores/999
