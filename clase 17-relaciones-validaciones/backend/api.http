@@ -1,0 +1,144 @@
+@baseUrl = http://localhost:3000
+
+### Listar libros (con su autor incluido)
+GET {{baseUrl}}/api/libros
+
+### Listar solo los disponibles
+GET {{baseUrl}}/api/libros?disponible=true
+
+### Ver un libro (con autor y categorías)
+GET {{baseUrl}}/api/libros/1
+
+### 404 - un libro que no existe
+GET {{baseUrl}}/api/libros/999
+
+### 400 - id inválido (no es un número)
+GET {{baseUrl}}/api/libros/abc
+
+### 400 - id inválido (negativo)
+GET {{baseUrl}}/api/libros/-5
+
+### Crear un libro
+POST {{baseUrl}}/api/libros
+Content-Type: application/json
+
+{
+  "titulo": "Rayuela",
+  "precio": 21000,
+  "imagen": "https://covers.openlibrary.org/b/id/8259447-L.jpg",
+  "autorId": 1
+}
+
+### 400 - crear un libro sin título
+POST {{baseUrl}}/api/libros
+Content-Type: application/json
+
+{
+  "precio": 5000,
+  "imagen": "https://covers.openlibrary.org/b/id/0-L.jpg",
+  "autorId": 1
+}
+
+### 400 - crear un libro con precio negativo
+POST {{baseUrl}}/api/libros
+Content-Type: application/json
+
+{
+  "titulo": "Precio inválido",
+  "precio": -500,
+  "imagen": "https://covers.openlibrary.org/b/id/0-L.jpg",
+  "autorId": 1
+}
+
+### 409 - crear un libro con un autor que no existe (FK inválida)
+POST {{baseUrl}}/api/libros
+Content-Type: application/json
+
+{
+  "titulo": "Huérfano",
+  "precio": 5000,
+  "imagen": "https://covers.openlibrary.org/b/id/0-L.jpg",
+  "autorId": 9999
+}
+
+### Editar un libro
+PUT {{baseUrl}}/api/libros/1
+Content-Type: application/json
+
+{
+  "precio": 30000
+}
+
+### 404 - editar un libro que no existe
+PUT {{baseUrl}}/api/libros/999
+Content-Type: application/json
+
+{
+  "precio": 1000
+}
+
+### Borrar un libro
+DELETE {{baseUrl}}/api/libros/2
+
+### 404 - borrar un libro que no existe
+DELETE {{baseUrl}}/api/libros/999
+
+### Listar autores
+GET {{baseUrl}}/api/autores
+
+### Ver un autor
+GET {{baseUrl}}/api/autores/1
+
+### 404 - un autor que no existe
+GET {{baseUrl}}/api/autores/999
+
+### Crear un autor
+POST {{baseUrl}}/api/autores
+Content-Type: application/json
+
+{
+  "nombre": "Julio Cortázar",
+  "nacionalidad": "Argentina"
+}
+
+### 400 - crear un autor sin nombre
+POST {{baseUrl}}/api/autores
+Content-Type: application/json
+
+{
+  "nacionalidad": "Argentina"
+}
+
+### 409 - crear un autor con nombre duplicado
+POST {{baseUrl}}/api/autores
+Content-Type: application/json
+
+{
+  "nombre": "Gabriel García Márquez",
+  "nacionalidad": "Colombia"
+}
+
+### Editar un autor
+PUT {{baseUrl}}/api/autores/1
+Content-Type: application/json
+
+{
+  "nacionalidad": "Colombiana"
+}
+
+### 404 - editar un autor que no existe
+PUT {{baseUrl}}/api/autores/999
+Content-Type: application/json
+
+{
+  "nacionalidad": "x"
+}
+
+### 409 - borrar un autor que tiene libros (onDelete: Restrict)
+DELETE {{baseUrl}}/api/autores/1
+
+### Borrar un autor sin libros
+DELETE {{baseUrl}}/api/autores/3
+
+### 404 - borrar un autor que no existe
+DELETE {{baseUrl}}/api/autores/999
