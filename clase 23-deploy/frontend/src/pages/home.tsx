@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Container, Row, Col, Spinner, Alert } from 'react-bootstrap';
 import LibroCard from '../components/librocard';
 import { useFetch } from '../hooks/useFetch';
@@ -5,6 +6,9 @@ import type { LibroCardProps } from '../types/libro';
 
 export function Home() {
   const { data: libros, loading, error } = useFetch<LibroCardProps[]>('/libros');
+  const [eliminados, setEliminados] = useState<number[]>([]);
+  const visibles = (libros ?? []).filter((l) => !eliminados.includes(l.id));
+  const alEliminar = (id: number) => setEliminados((previos) => [...previos, id]);
 
   if (loading) {
     return (
@@ -27,7 +31,7 @@ export function Home() {
   }
 
   // Mostramos solo los primeros 3 como "Destacados"
-  const destacados = (libros ?? []).slice(0, 3);
+  const destacados = visibles.slice(0, 3);
 
   return (
     <Container className="my-4">
@@ -35,7 +39,7 @@ export function Home() {
       <Row xs={1} md={2} lg={3} className="g-4">
         {destacados.map((libro) => (
           <Col key={libro.id}>
-            <LibroCard {...libro} />
+            <LibroCard {...libro} onEliminado={alEliminar} />
           </Col>
         ))}
       </Row>

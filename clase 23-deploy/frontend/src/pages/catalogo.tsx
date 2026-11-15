@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Container, Row, Col, Spinner, Alert } from 'react-bootstrap';
 import LibroCard from '../components/librocard';
 import { useFetch } from '../hooks/useFetch';
@@ -5,6 +6,9 @@ import type { LibroCardProps } from '../types/libro';
 
 export function Catalogo() {
   const { data: libros, loading, error } = useFetch<LibroCardProps[]>('/libros');
+  const [eliminados, setEliminados] = useState<number[]>([]);
+  const visibles = (libros ?? []).filter((l) => !eliminados.includes(l.id));
+  const alEliminar = (id: number) => setEliminados((previos) => [...previos, id]);
 
   if (loading) {
     return (
@@ -30,9 +34,9 @@ export function Catalogo() {
     <Container className="my-4">
       <h2 className="mb-4 fw-bold">Catálogo Completo</h2>
       <Row xs={1} md={2} lg={3} className="g-4">
-        {(libros ?? []).map((libro) => (
+        {visibles.map((libro) => (
           <Col key={libro.id}>
-            <LibroCard {...libro} />
+            <LibroCard {...libro} onEliminado={alEliminar} />
           </Col>
         ))}
       </Row>
